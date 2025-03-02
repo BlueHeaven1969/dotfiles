@@ -1,0 +1,275 @@
+/* ---- 💫 https://github.com/JaKooLit 💫 ---- */
+/* Wallust - Chroma Tally */
+
+@import '../../.config/waybar/wallust/colors-waybar.css';
+
+* {
+font-family: "0xProto Nerd Font";
+font-weight: bold;
+min-height: 0;
+/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
+font-size: 100%;
+/* font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"'; */
+}
+
+window#waybar {
+    background: rgba (0, 0, 0, 0.5);
+    border-radius: 12px;
+	border-bottom: 2px;
+    border-style: solid;
+	border-color: @color12; 
+}
+
+#workspaces {
+	background: transparent;
+	padding: 2px;
+	border-radius: 15px;
+	border: 0px;
+	font-style: normal;
+	color: #11111b;
+}
+
+#taskbar button,
+#workspaces button {
+	padding: 0px 5px;
+	border-radius: 15px;
+	border: 0px;
+	color: #11111b;
+	background: linear-gradient(45deg, #89b4fa, #cba6f7);
+	opacity: 0.5;
+	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#taskbar button.active,
+#workspaces button.active {
+	padding: 0px 5px;
+	border-radius: 15px;
+	border: 0px;
+	color: #0F1419;
+	background: linear-gradient(45deg, #89dceb, #f5e2d7);
+	opacity: 1.0;
+	min-width: 40px;
+	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button:hover {
+	border-radius: 15px;
+	color: #0F1419;
+	background: linear-gradient(45deg, #89dceb, #f5d2d7);
+	opacity: 0.8;
+	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+
+}
+
+tooltip {
+	background: #1e1e2e;
+	opacity: 0.8;
+	border-radius: 6px;
+}
+
+#backlight,
+#backlight-slider,
+#battery,
+#bluetooth,
+#clock,
+#cpu,
+#disk,
+#idle_inhibitor,
+#keyboard-state,
+#memory,
+#mode,
+#mpris,
+#network,
+#power-profiles-daemon,
+#pulseaudio,
+#pulseaudio-slider,
+#taskbar,
+#temperature,
+#tray,
+#window,
+#wireplumber,
+#workspaces,
+#custom-backlight,
+#custom-browser,
+#custom-cava_mviz,
+#custom-cycle_wall,
+#custom-file_manager,
+#custom-keybinds,
+#custom-keyboard,
+#custom-light_dark,
+#custom-lock,
+#custom-hint,
+#custom-hypridle,
+#custom-menu,
+#custom-playerctl,
+#custom-power_vertical,
+#custom-power,
+#custom-settings,
+#custom-spotify,
+#custom-swaync,
+#custom-tty,
+#custom-updater,
+#custom-weather,
+#custom-weather.clearNight,
+#custom-weather.cloudyFoggyDay,
+#custom-weather.cloudyFoggyNight,
+#custom-weather.default, 
+#custom-weather.rainyDay,
+#custom-weather.rainyNight,
+#custom-weather.severe,
+#custom-weather.showyIcyDay,
+#custom-weather.snowyIcyNight,
+#custom-weather.sunnyDay {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-right: 6px;
+	padding-left: 6px;
+}
+ 
+/* -----------------------------------------------------------------------------
+ * Module styles
+ * -------------------------------------------------------------------------- */
+
+ 
+#custom-playerctl {
+    color:#74e7ec;
+}
+
+#clock {
+    color:#f9e2af;
+}
+
+#backlight {
+    color: #f9e2af;
+}
+
+#battery {
+    color: #b4befe;
+}
+
+#battery.charging {
+    color: #a6e3a1;
+}
+
+@keyframes blink {
+    to {
+        color: #4c566a;
+        background-color: #eceff4;
+    }
+}
+
+#battery.critical:not(.charging) {
+    background: #bf616a;
+    color: #eceff4;
+	animation-name: blink;
+	animation-duration: 3.0s;
+	animation-timing-function: steps(12);
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+#cpu {
+    color: #fab387;
+}
+
+#disk {
+	color: #94e2d5;
+}
+
+#custom-keyboard,
+#memory {
+    color: #eba0ac;
+}
+
+#network.disabled {
+    color:#f38ba8;
+}
+
+#network{
+    color:#f5e0dc;
+}
+
+#network.disconnected {
+    color: #f38ba8;
+}
+
+#pulseaudio {
+    color: #89b4fa;
+}
+
+#pulseaudio.muted {
+    color: #eba0ac;
+}
+
+#custom-light_dark,
+#temperature {
+    color: #fab387;
+}
+
+#temperature.critical {
+    color: #f38ba8;
+}
+
+#keyboard-state,
+#custom-hypridle,
+#idle_inhibitor {
+   color: #fab387;
+}
+
+/*-----Indicators----*/
+#custom-hypridle.notactive,
+#idle_inhibitor.activated {
+	color: #a6e3a1;
+}
+
+#tray {
+}
+
+#custom-swaync,
+#custom-menu {
+	color: yellow;
+	padding-left: 8px;
+}
+#custom-power{
+    color: #f38ba8; 
+}
+
+#window{
+    border-style: hidden; 
+}
+
+#custom-lock,    
+#bluetooth{
+	color:#89b4fa;
+}
+
+#custom-cava_mviz{
+	color: @color11;
+} 
+  
+#custom-weather{
+	color:#f5e0dc;
+}
+
+#backlight-slider slider,
+#pulseaudio-slider slider {
+	min-width: 0px;
+	min-height: 0px;
+	opacity: 0;
+	background-image: none;
+	border: none;
+	box-shadow: none;
+}
+
+#backlight-slider trough,
+#pulseaudio-slider trough {
+	min-width: 80px;
+	min-height: 5px;
+	border-radius: 5px;
+}
+
+#backlight-slider highlight,
+#pulseaudio-slider highlight {
+	min-height: 10px;
+	border-radius: 5px;
+}

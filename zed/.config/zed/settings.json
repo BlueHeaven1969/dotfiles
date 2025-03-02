@@ -1,0 +1,45 @@
+{
+    "assistant": {
+        "enabled": false,
+        "default_model": {
+            "provider": "zed.dev",
+            "model": "claude-3-5-sonnet-latest"
+        },
+        "version": "2"
+    },
+    "features": {
+        "inline_completion_provider": "none",
+        "copilot": false
+    },
+    "telemetry": {
+        "metrics": false,
+        "diagnostics": false
+    },
+    "collaboration_panel": {
+        "button": false
+    },
+    "chat_panel": {
+        "button": false
+    },
+    "notification_panel": {
+        "button": false
+    },
+    "vim_mode": true,
+    "ui_font_size": 16,
+    "buffer_font_size": 16,
+    "buffer_font_family": "0xProto Nerd Font",
+    "theme": {
+        "mode": "system",
+        "light": "One Light",
+        "dark": "Catppuccin Mocha"
+    },
+    "lsp": {
+        "pyright": {
+            "settings": {
+                "python": {
+                    "pythonPath": "/home/rsp/.venv/bin/python3"
+                }
+            }
+        }
+    }
+}
