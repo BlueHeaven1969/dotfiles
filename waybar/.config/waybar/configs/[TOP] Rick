@@ -34,6 +34,7 @@
 
 "modules-right": [
 	"network#speed2",
+	"bluetooth",
 	"custom/separator#dot-line",
 	"group/laptop",
 	"custom/separator#dot-line",
