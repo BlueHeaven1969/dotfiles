@@ -1,7 +1,7 @@
 /* ---- 💫 https://github.com/JaKooLit 💫 ---- */
 /* Wallust - Chroma Tally */
 
-@import '../../.config/waybar/wallust/colors-waybar.css';
+@import 'mocha.css';
 
 * {
 font-family: "0xProto Nerd Font";
@@ -17,7 +17,7 @@ window#waybar {
     border-radius: 12px;
 	border-bottom: 2px;
     border-style: solid;
-	border-color: @color12; 
+	border-color: @rosewater; 
 }
 
 #workspaces {
@@ -26,7 +26,7 @@ window#waybar {
 	border-radius: 15px;
 	border: 0px;
 	font-style: normal;
-	color: #11111b;
+	color: @crust;
 }
 
 #taskbar button,
@@ -34,8 +34,8 @@ window#waybar {
 	padding: 0px 5px;
 	border-radius: 15px;
 	border: 0px;
-	color: #11111b;
-	background: linear-gradient(45deg, #89b4fa, #cba6f7);
+	color: @crust;
+	background: linear-gradient(45deg, @blue, @mauve);
 	opacity: 0.5;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
@@ -45,8 +45,8 @@ window#waybar {
 	padding: 0px 5px;
 	border-radius: 15px;
 	border: 0px;
-	color: #0F1419;
-	background: linear-gradient(45deg, #89dceb, #f5e2d7);
+	color: @crust;
+	background: linear-gradient(45deg, @sky, @rosewater);
 	opacity: 1.0;
 	min-width: 40px;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
@@ -54,15 +54,15 @@ window#waybar {
 
 #workspaces button:hover {
 	border-radius: 15px;
-	color: #0F1419;
-	background: linear-gradient(45deg, #89dceb, #f5d2d7);
+	color: @crust;
+	background: linear-gradient(45deg, @sky, @rosewater);
 	opacity: 0.8;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 
 }
 
 tooltip {
-	background: #1e1e2e;
+	background: @base;
 	opacity: 0.8;
 	border-radius: 6px;
 }
@@ -132,35 +132,35 @@ tooltip {
 
  
 #custom-playerctl {
-    color:#74e7ec;
+    color: @sapphire;
 }
 
 #clock {
-    color:#f9e2af;
+    color: @yellow;
 }
 
 #backlight {
-    color: #f9e2af;
+    color: @yellow;
 }
 
 #battery {
-    color: #b4befe;
+    color: @lavender;
 }
 
 #battery.charging {
-    color: #a6e3a1;
+    color: @green;
 }
 
 @keyframes blink {
     to {
-        color: #4c566a;
-        background-color: #eceff4;
+        color: @surface1;
+        background-color: @maroon;
     }
 }
 
 #battery.critical:not(.charging) {
-    background: #bf616a;
-    color: #eceff4;
+    background: @red;
+    color: @text;
 	animation-name: blink;
 	animation-duration: 3.0s;
 	animation-timing-function: steps(12);
@@ -169,57 +169,57 @@ tooltip {
 }
 
 #cpu {
-    color: #fab387;
+    color: @peach;
 }
 
 #disk {
-	color: #94e2d5;
+	color: @teal;
 }
 
 #custom-keyboard,
 #memory {
-    color: #eba0ac;
+    color: @maroon;
 }
 
 #network.disabled {
-    color:#f38ba8;
+    color: @red;
 }
 
 #network{
-    color:#f5e0dc;
+    color: @teal;
 }
 
 #network.disconnected {
-    color: #f38ba8;
+    color: @red;
 }
 
 #pulseaudio {
-    color: #89b4fa;
+    color: @blue;
 }
 
 #pulseaudio.muted {
-    color: #eba0ac;
+    color: @maroon;
 }
 
 #custom-light_dark,
 #temperature {
-    color: #fab387;
+    color: @peach;
 }
 
 #temperature.critical {
-    color: #f38ba8;
+    color: @red;
 }
 
 #keyboard-state,
 #custom-hypridle,
 #idle_inhibitor {
-   color: #fab387;
+   color: @peach;
 }
 
 /*-----Indicators----*/
 #custom-hypridle.notactive,
 #idle_inhibitor.activated {
-	color: #a6e3a1;
+	color: @subtext0;
 }
 
 #tray {
@@ -227,11 +227,11 @@ tooltip {
 
 #custom-swaync,
 #custom-menu {
-	color: yellow;
+	color: @yellow;
 	padding-left: 8px;
 }
 #custom-power{
-    color: #f38ba8; 
+    color: @red; 
 }
 
 #window{
@@ -240,15 +240,15 @@ tooltip {
 
 #custom-lock,    
 #bluetooth{
-	color:#89b4fa;
+	color: @blue;
 }
 
 #custom-cava_mviz{
-	color: @color11;
+	color: @teal;
 } 
   
 #custom-weather{
-	color:#f5e0dc;
+	color: @rosewater;
 }
 
 #backlight-slider slider,

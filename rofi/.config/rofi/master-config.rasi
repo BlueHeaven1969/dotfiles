@@ -4,7 +4,7 @@
 /* ---- Configuration ---- */
 
 configuration {
-    font:                       "JetBrainsMono Nerd Font SemiBold 12";
+    font:                       "0xProto Nerd Font SemiBold 12";
     modi:                       "drun,run,filebrowser";
     show-icons:                 true;
     display-drun:               "Apps";
@@ -20,19 +20,23 @@ configuration {
 }
 
 /* ---- Load wallust colors ---- */
-@theme "~/.config/rofi/wallust/colors-rofi.rasi"
+@theme "~/.config/rofi/catppuccin-mocha.rasi"
 
 /* ---- Global Properties ---- */
 * {
+    background:                  @base;
+    foreground:                  @surface0;
+    background-button:           @surface0; // Buttons background
+    background-selected:         @surface2; // Button selected
+    background-active:           @overlay0; // Window activated
+    background-urgent:           @maroon; // When hovering the activated window (maybe more?)
 
-    background-alt:              @selected-active-background; // Buttons background
-    selected:                    @selected-urgent-background; // Button selected
-    active:                      @selected-normal-background; // Window activated
-    urgent:                      @selected; // When hovering the activated window (maybe more?)
+    text-selected:               @rosewater;
+    text-active:                 @green;
+    text-normal:                 @text;
 
-    text-selected:               @background;
-    text-color:                  @foreground;
     border-color:                @selected;
+    text-color:                  @text-normal;
 }
 
 /* ---- Window ---- */
@@ -66,13 +70,12 @@ mainbox {
 /* ---- Inputbar ---- */
 inputbar {
     enabled:                     true;
-    padding:                     10px 10px 50px 10px;
+    padding:                     10px 10px 10px 10px;
     margin:                      10px;
     background-color:            transparent;
     border-radius:               20px;
     orientation:                 horizontal;
     children:                    ["entry", "dummy", "mode-switcher" ];
-    background-image:            url("~/.config/rofi/.current_wallpaper", width);
 }
 
 /* ---- Entry input ---- */
@@ -82,7 +85,7 @@ entry {
     width:                       20%;
     padding:                     10px;
     border-radius:               12px;
-    background-color:            @selected;
+    background-color:            @background-selected;
     text-color:                  @text-selected;
     cursor:                      text;
     placeholder:                 " 🖥️ Search "; // << Search symbol
@@ -124,7 +127,7 @@ dummy {
 }
 
 /* ---- Mode Switcher ---- */
-mode-switcher{
+mode-switcher{   
     enabled:                     true;
     spacing:                     10px;
     background-color:            transparent;
@@ -133,19 +136,19 @@ button {
     width:                       5%;
     padding:                     12px;
     border-radius:               12px;
-    background-color:            @text-selected;
-    text-color:                  @text-color;
+    background-color:            @background-button;
+    text-color:                  @text-normal;
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @selected;
+    background-color:            @background-selected;
     text-color:                  @text-selected;
 }
 
 /* ---- Scrollbar ---- */
 scrollbar {
     border:       				0;
-    handle-color: 				@background-alt;
+    handle-color: 				@background-button;
     handle-width: 				2px ;
     padding:      				0;
 }
@@ -165,29 +168,29 @@ element normal.normal {
     text-color:                  inherit;
 }
 element normal.urgent {
-    background-color:            @urgent;
-    text-color:                  @foreground;
+    background-color:            @background-urgent;
+    text-color:                  @text-normal;
 }
 element normal.active {
-    background-color:            @active;
-    text-color:                  @foreground;
+    background-color:            @background-active;
+    text-color:                  @text-active;
 }
 
 element selected.normal {
     border:                      0px 3px 0px 3px;
     border-radius:               16px;
-    border-color:                @selected;
+    border-color:                @background-selected;
     background-color:            transparent;
-    text-color:                  @background-alt;
+    text-color:                  @text-selected;
 }
 
 element selected.urgent {
-    background-color:            @urgent;
-    text-color:                  @text-selected;
+    background-color:            @background-urgent;
+    text-color:                  @text-normal;
 }
 element selected.active {
-    background-color:            @urgent;
-    text-color:                  @text-selected;
+    background-color:            @background-urgent;
+    text-color:                  @text-normal;
 }
 // Adapt rofi theme
 element alternate.normal {
@@ -208,7 +211,7 @@ element-icon {
     cursor:                      inherit;
 }
 element-text {
-    font:						"JetBrainsMono Nerd Font SemiBold 14";
+    font:						"0xProto Nerd Font SemiBold 14";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
@@ -224,14 +227,14 @@ message {
 textbox {
     padding:                     12px;
     border-radius:               10px;
-    background-color:            @background-alt;
-    text-color:                  @background;
+    background-color:            @background-button;
+    text-color:                  @text-normal;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
 error-message {
     padding:                     12px;
     border-radius:               20px;
-    background-color:            @background-alt;
-    text-color:                  @background;
+    background-color:            @background-urgent;
+    text-color:                  @text-normal;
 }

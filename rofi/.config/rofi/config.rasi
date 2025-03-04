@@ -32,6 +32,6 @@ element-icon {
 }
 
 element-text {
-  font: "JetBrainsMono Nerd Font SemiBold 12";
+  font: "0xProto Nerd Font SemiBold 12";
   horizontal-align: 0.5;
 }
