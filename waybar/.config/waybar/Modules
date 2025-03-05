@@ -99,8 +99,8 @@
 
 "clock": {
 	"interval": 1,
-	"format": " {:%I:%M %p %a %m/%d/%y }",
-    "format-alt": " {:%I:%M %p}", // AM PM format
+	"format": "{:%I:%M %p %a %b %d}",
+    "format-alt": "{:%I:%M %p}", // AM PM format
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
 		"mode": "year",
@@ -314,6 +314,20 @@
 	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
 	"tooltip-format-ethernet": "{ifname} 󰌘",
 	"tooltip-format-disconnected": "󰌙 Disconnected",
+	"min-length": 8,
+	"max-length": 24,
+	"format-icons": [
+		"󰤯", "󰤟", "󰤢", "󰤥", "󰤨"
+	]
+},
+
+"network#speed3": {
+	"interval": 1,
+	"format": "{ifname}",
+	"format-wifi": "{bandwidthTotalBits} {icon}",
+	"format-ethernet": "{bandwidthTotalBytes} 󰌘",
+	"format-disconnected": "DISC 󰌙",
+	"tooltip-format": " {bandwidthUpBits}  {bandwidthDownBits}",
 	"min-length": 8,
 	"max-length": 24,
 	"format-icons": [

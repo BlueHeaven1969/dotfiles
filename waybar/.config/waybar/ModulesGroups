@@ -41,6 +41,7 @@
 		"temperature",		
 		"cpu",
 		"memory",
+        "network#speed3",
 		"disk",
 	]
 },
