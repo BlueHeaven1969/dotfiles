@@ -268,14 +268,15 @@
 },
 
 "network": {
+    "interval": 5,
 	"format": "{ifname}",
-	"format-wifi": "{icon}",
-	"format-ethernet": "󰌘",
-	"format-disconnected": "󰌙",
+	"format-wifi": "{essid} {icon}",
+	"format-ethernet": "{ifname} 󰌘",
+	"format-disconnected": "NONE 󰌙",
 	"tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
 	"format-linked": "󰈁 {ifname} (No IP)",
-	"tooltip-format-wifi": "{essid} {icon} {signalStrength}%",
-	"tooltip-format-ethernet": "{ifname} 󰌘",
+	"tooltip-format-wifi": "{signalStrength}% {bandwidthTotalBytes}",
+	"tooltip-format-ethernet": "{bandwidthTotalBytes}",
 	"tooltip-format-disconnected": "󰌙 Disconnected",
 	"max-length": 30,
 	"format-icons": [
