@@ -8,7 +8,7 @@ font-family: "0xProto Nerd Font";
 font-weight: bold;
 min-height: 0;
 /* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
-font-size: 100%;
+font-size: 15px;
 /* font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"'; */
 }
 
@@ -38,9 +38,9 @@ window#waybar {
 	padding: 0px 5px;
 	border-radius: 15px;
 	border: 0px;
-	color: @crust;
-	background: @blue;
-	opacity: 0.5;
+	color: @pink;
+	background: @crust;
+	opacity: 0.65;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
@@ -48,9 +48,9 @@ window#waybar {
 	padding: 0px 5px;
 	border-radius: 15px;
 	border: 0px;
-	color: @crust;
-	background: @blue;
-	opacity: 0.25;
+	color: @pink;
+	background: @crust;
+	opacity: 0.35;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
@@ -60,9 +60,8 @@ window#waybar {
 	border-radius: 15px;
 	border: 0px;
 	color: @crust;
-	background: @sky;
-	opacity: 1.0;
-	min-width: 40px;
+	background: @pink;
+	opacity: 0.9;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
@@ -70,7 +69,7 @@ window#waybar {
 	border-radius: 15px;
 	color: @crust;
 	background: @mauve;
-	opacity: 0.8;
+	opacity: 0.9;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 

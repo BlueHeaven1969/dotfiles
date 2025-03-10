@@ -87,6 +87,7 @@
 "bluetooth": {
 	"format": " ",
 	"format-disabled": "󰂳",
+	"format-off": "󰂲",
 	"format-connected": "󰂱 {num_connections}",
 	"tooltip-format": " {device_alias}",
 	"tooltip-format-off": " off",
@@ -99,7 +100,7 @@
 
 "clock": {
 	"interval": 1,
-	"format": "{:%I:%M %p %a %b %d}",
+	"format": "{:%I:%M %p %a %m/%d}",
     "format-alt": "{:%I:%M %p}", // AM PM format
 	"tooltip-format": "<tt><small>{calendar}</small></tt>",
 	"calendar": {
@@ -407,7 +408,7 @@
 },
 
 "tray": {
-	"icon-size": 20,
+	"icon-size": 18,
 	"spacing": 4,
 },
 

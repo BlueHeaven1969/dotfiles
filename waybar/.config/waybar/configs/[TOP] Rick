@@ -45,7 +45,6 @@
 	"custom/weather",
 	"custom/separator#dot-line", 
 	"tray",
-	"idle_inhibitor",
 	"custom/swaync",
 	"group/status",
 	],
