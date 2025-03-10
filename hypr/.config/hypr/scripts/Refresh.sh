@@ -5,7 +5,7 @@
 SCRIPTSDIR=$HOME/.config/hypr/scripts
 
 # Kill already running processes
-_ps=(waybar rofi swaync ags)
+_ps=(waybar rofi swaync ags-old)
 for _prs in "${_ps[@]}"; do
     if pidof "${_prs}" >/dev/null; then
         pkill "${_prs}"
@@ -17,10 +17,10 @@ killall -SIGUSR2 waybar
 killall -SIGUSR2 swaync
 
 # quit ags & relaunch ags
-ags -q && ags &
+ags-old -q && ags-old &
 
 # some process to kill
-for pid in $(pidof waybar rofi swaync ags swaybg); do
+for pid in $(pidof waybar rofi swaync ags-old swaybg); do
     kill -SIGUSR1 "$pid"
 done
 

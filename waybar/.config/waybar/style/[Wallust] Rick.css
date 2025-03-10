@@ -22,11 +22,15 @@ window#waybar {
 
 #workspaces {
 	background: transparent;
-	padding: 2px;
+	padding: 0px;
 	border-radius: 15px;
 	border: 0px;
 	font-style: normal;
 	color: @crust;
+	padding-top: 2px;
+	padding-bottom: 3px;
+	padding-right: 6px;
+	padding-left: 6px;
 }
 
 #taskbar button,
@@ -35,8 +39,18 @@ window#waybar {
 	border-radius: 15px;
 	border: 0px;
 	color: @crust;
-	background: linear-gradient(45deg, @blue, @mauve);
+	background: @blue;
 	opacity: 0.5;
+	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#workspaces button.empty {
+	padding: 0px 5px;
+	border-radius: 15px;
+	border: 0px;
+	color: @crust;
+	background: @blue;
+	opacity: 0.25;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
@@ -46,7 +60,7 @@ window#waybar {
 	border-radius: 15px;
 	border: 0px;
 	color: @crust;
-	background: linear-gradient(45deg, @sky, @rosewater);
+	background: @sky;
 	opacity: 1.0;
 	min-width: 40px;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
@@ -55,10 +69,9 @@ window#waybar {
 #workspaces button:hover {
 	border-radius: 15px;
 	color: @crust;
-	background: linear-gradient(45deg, @sky, @rosewater);
+	background: @mauve;
 	opacity: 0.8;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
-
 }
 
 tooltip {
@@ -88,7 +101,6 @@ tooltip {
 #tray,
 #window,
 #wireplumber,
-#workspaces,
 #custom-backlight,
 #custom-browser,
 #custom-cava_mviz,
