@@ -1,16 +1,16 @@
 /* ----------- 💫 https://github.com/JaKooLit 💫 -------- */
 /* swaync colors - wallust from waybar.css */
 
-@import '../../.config/waybar/wallust/colors-waybar.css';
+@import '../waybar/mocha.css';
 
-@define-color noti-border-color @color12;
+@define-color noti-border-color @rosewater;
 @define-color noti-bg rgba(0, 0, 0, 0.8);
-@define-color noti-bg-alt #111111;
-@define-color noti-bg-hover @background;
-@define-color text-color @foreground;
+@define-color noti-bg-alt @crust;
+@define-color noti-bg-hover @base;
+@define-color text-color @text;
 
 * {
-    font-family: "JetBrains Mono Nerd Font";
+    font-family: "0xProto Nerd Font";
     font-weight: bold;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .close-button {
-    background: #f7768e;
+    background: @red;
     color: @noti-bg;
     text-shadow: none;
     padding: 0;
@@ -57,7 +57,7 @@
 
 .close-button:hover {
     box-shadow: none;
-    background: #f7768e;
+    background: @red;
     transition: all .15s ease-in-out;
     border: none
 }
