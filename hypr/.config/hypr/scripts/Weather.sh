@@ -3,7 +3,7 @@
 # weather info from wttr. https://github.com/chubin/wttr.in
 # Remember to add city 
 
-city=Lowell
+city=KBOS
 cachedir=~/.cache/rbn
 cachefile=${0##*/}-$1
 
@@ -33,7 +33,9 @@ weather=($(cat $cachedir/$cachefile))
 # Restore IFSClear
 IFS=$SAVEIFS
 
-temperature=$(echo ${weather[2]} | sed -E 's/\([[:digit:]]+\)//')
+temp1=$(echo ${weather[2]} | sed -E 's/\([[:digit:]]+\)//')
+temp2=$(echo ${temp1} | sed -E 's/[[:space:]]+//g')
+temperature=$(echo ${temp2} | sed -E 's/\+//g')
 
 #echo ${weather[1]##*,}
 

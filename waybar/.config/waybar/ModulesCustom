@@ -9,12 +9,12 @@
 	"format": "{}",
 	"format-alt": "{alt}: {}",
 	"format-alt-click": "click",
-	"interval": 1800,
+	"interval": 120,
 	"return-type": "json",
 	"exec": "$HOME/.config/hypr/scripts/Weather.sh",
-	//"exec": "$HOME/.config/hypr/UserScripts/Weather.py",
 	"exec-if": "ping wttr.in -c1",
 	"tooltip": true,
+    "on-click": "$HOME/.config/hypr/scripts/Weather.sh",
 },
 
 "custom/file_manager": {
