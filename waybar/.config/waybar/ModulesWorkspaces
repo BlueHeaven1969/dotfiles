@@ -170,14 +170,11 @@
 	"disable-scroll": true,
 	"all-outputs": true,
 	"warp-on-scroll": false,
-	"sort-by-number": true,
+	"sort-by": "default",
 	"show-special": false,
 	"on-click": "activate",
 	"on-scroll-up": "hyprctl dispatch workspace e+1",
 	"on-scroll-down": "hyprctl dispatch workspace e-1",
-	"persistent-workspaces": {
-		"*": 5
-	  },
 	"format": "{icon}{windows}",
 	"format-window-separator": " ",
 	"window-rewrite-default": "  ",

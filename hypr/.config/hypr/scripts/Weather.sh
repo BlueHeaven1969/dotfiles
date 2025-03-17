@@ -3,9 +3,11 @@
 # weather info from wttr. https://github.com/chubin/wttr.in
 # Remember to add city 
 
-city=KBOS
+city=KLWM
 cachedir=~/.cache/rbn
-cachefile=${0##*/}-$1
+cachefile=weather_cache_$city
+cacheage=9999
+max_cacheage=1740
 
 if [ ! -d $cachedir ]; then
     mkdir -p $cachedir
@@ -13,6 +15,8 @@ fi
 
 if [ ! -f $cachedir/$cachefile ]; then
     touch $cachedir/$cachefile
+else
+    cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
 fi
 
 # Save current IFS
@@ -20,8 +24,7 @@ SAVEIFS=$IFS
 # Change IFS to new line.
 IFS=$'\n'
 
-cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
-if [ $cacheage -gt 1740 ] || [ ! -s $cachedir/$cachefile ]; then
+if [ $cacheage -gt $max_cacheage ]; then
     data=($(curl -s https://en.wttr.in/"$city"$1\?0uqnT 2>&1))
     echo ${data[0]} | cut -f1 -d, > $cachedir/$cachefile
     echo ${data[1]} | sed -E 's/^.{15}//' >> $cachedir/$cachefile
