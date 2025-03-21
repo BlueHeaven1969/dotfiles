@@ -1,8 +1,7 @@
-font-family = "0xProto Nerd Font"
-font-size = 13
+font-family = "CommitMono Nerd Font"
+font-size = 14
+font-feature = +ss03, +ss04, +ss05, +cv06, +cv07, +cv08
 theme = "catppuccin-mocha"
 background-opacity = 0.6
 window-theme = "ghostty"
-window-height = 45
-window-width = 100
 

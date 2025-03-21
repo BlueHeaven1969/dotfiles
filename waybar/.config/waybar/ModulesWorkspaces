@@ -217,7 +217,8 @@
 		"class<microsoft-edge>": "  ",
 		"class<vlc>": " 󰕼 ",
 		"class<calibre-gui>": "  ",
-		"class<signal>": " 󰭹 "
+		"class<signal>": " 󰭹 ",
+		"class<.*stremio.*>": "  "
 		}   
 	},
 
