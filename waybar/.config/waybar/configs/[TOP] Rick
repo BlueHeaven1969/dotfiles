@@ -21,7 +21,7 @@
 "margin-right": 8,
 
 "modules-left": [
-	"custom/playerctl",
+	"custom/waybar-scrolling-mpris",
 	"custom/separator#blank_2",
 	"hyprland/window",
 	],

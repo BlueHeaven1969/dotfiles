@@ -125,6 +125,18 @@
 	"smooth-scrolling-threshold": 1,
 },
     
+"custom/waybar-scrolling-mpris": {
+    "format": "  {}",
+    "display-format": "{icon}  {artist} - {title}",
+    "exec": "~/.config/hypr/scripts/waybar-scrolling-mpris ~/.config/waybar/ModulesCustom",
+    "icons": {
+        "Paused": "⏸",
+        "Playing": "▶",
+        "Stopped": "■",
+    },
+    "length": 40,
+},
+
 "custom/power": {
 	"format": "⏻ ",
 	"on-click": "$HOME/.config/hypr/scripts/Wlogout.sh",

@@ -113,6 +113,7 @@ tooltip {
 #custom-hypridle,
 #custom-menu,
 #custom-playerctl,
+#custom-waybar-scrolling-mpris,
 #custom-power_vertical,
 #custom-power,
 #custom-settings,
@@ -142,7 +143,8 @@ tooltip {
  * -------------------------------------------------------------------------- */
 
  
-#custom-playerctl {
+#custom-playerctl,
+#custom-waybar-scrolling-mpris {
     color: @sapphire;
 }
 
