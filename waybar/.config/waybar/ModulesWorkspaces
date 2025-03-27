@@ -179,11 +179,6 @@
 	"format-window-separator": " ",
 	"window-rewrite-default": "  ",
 	"window-rewrite": {
-		"title<.*youtube.*>": "  ",
-		"title<.*amazon.*>": "  ",
-		"title<.*reddit.*>": "  ",
-		"title<.*Picture-in-Picture.*>": "  ",
-		"title<.*freetube.*>": "  ",
 		"class<firefox|org.mozilla.firefox|librewolf|floorp|mercury-browser|[Cc]achy-browser>": " 󰈹 ",
 		"class<kitty|konsole>": "  ",
 		"class<kitty-dropterm>": "  ",
@@ -218,7 +213,8 @@
 		"class<vlc>": " 󰕼 ",
 		"class<calibre-gui>": "  ",
 		"class<signal>": " 󰭹 ",
-		"class<.*stremio.*>": "  "
+		"class<.*stremio.*>": "  ",
+		"class<io.freetubeapp.FreeTube>": "  "
 		}   
 	},
 
