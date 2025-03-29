@@ -1,4 +1,4 @@
 #!/bin/bash
 
-/home/rsp/desktop-app/ui/dist/bin/ivpn-ui
+/home/rsp/src/desktop-app/ui/dist/bin/ivpn-ui
 
