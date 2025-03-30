@@ -24,8 +24,9 @@ configuration {
 
 /* ---- Global Properties ---- */
 * {
-    background:                  @base;
+    background:                  @basex;
     foreground:                  @surface0;
+    background-entry:            @surface2x; // Button selected
     background-button:           @surface0; // Buttons background
     background-selected:         @surface2; // Button selected
     background-active:           @overlay0; // Window activated
@@ -48,7 +49,7 @@ window {
     cursor:                     "default";
     spacing:                    0px;
     border:                     3px 0px 3px 0px;
-    border-radius:              30px;
+    border-radius:              20px;
     location:                   center;
     anchor:                     center;
 
@@ -59,7 +60,7 @@ window {
 
 /* ----- Main Box ----- */
 mainbox {
-	padding:					 12px;
+	padding:					 8px;
     enabled:                     true;
     orientation:                 vertical;
     children:                    [ "inputbar", "listbox" ];
@@ -70,10 +71,10 @@ mainbox {
 /* ---- Inputbar ---- */
 inputbar {
     enabled:                     true;
-    padding:                     10px 10px 10px 10px;
-    margin:                      10px;
+    padding:                     5px 5px 5px 5px;
+    margin:                      5px;
     background-color:            transparent;
-    border-radius:               20px;
+    border-radius:               15px;
     orientation:                 horizontal;
     children:                    ["entry", "dummy", "mode-switcher" ];
 }
@@ -82,10 +83,10 @@ inputbar {
 entry {
     enabled:                     true;
     expand:                      false;
-    width:                       20%;
+    width:                       23%;
     padding:                     10px;
     border-radius:               12px;
-    background-color:            @background-selected;
+    background-color:            @background-entry;
     text-color:                  @text-selected;
     cursor:                      text;
     placeholder:                 " 🖥️ Search "; // << Search symbol
@@ -94,8 +95,8 @@ entry {
 
 /* ---- Listbox ---- */
 listbox {
-    spacing:                     10px;
-    padding:                     10px;
+    spacing:                     5px;
+    padding:                     5px;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    [ "message", "listview" ];
@@ -113,7 +114,7 @@ listview {
     reverse:                     false;
     fixed-height:                false;
     fixed-columns:               true;    
-    spacing:                     10px;
+    spacing:                     5px;
     background-color:            transparent;
 
 //  Adapt rofi theme
@@ -129,12 +130,12 @@ dummy {
 /* ---- Mode Switcher ---- */
 mode-switcher{   
     enabled:                     true;
-    spacing:                     10px;
+    spacing:                     8px;
     background-color:            transparent;
 }
 button {
     width:                       5%;
-    padding:                     12px;
+    padding:                     8px;
     border-radius:               12px;
     background-color:            @background-button;
     text-color:                  @text-normal;
@@ -156,9 +157,9 @@ scrollbar {
 /* ---- Elements ---- */
 element {
     enabled:                     true;
-    spacing:                     10px;
-  	padding: 					 10px;
-    border-radius:               12px;
+    spacing:                     8px;
+  	padding: 					 8px;
+    border-radius:               8px;
     background-color:            transparent;
     cursor:                      pointer;
 }
@@ -225,7 +226,7 @@ message {
     border:                      0px;
 }
 textbox {
-    padding:                     12px;
+    padding:                     8px;
     border-radius:               10px;
     background-color:            @background-button;
     text-color:                  @text-normal;

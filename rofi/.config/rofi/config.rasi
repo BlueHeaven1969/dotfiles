@@ -15,12 +15,13 @@ button {
 
 /* ---- Listview ---- */
 listview {
-  columns: 5;
-  lines: 5;
+  columns: 1;
+  lines: 10;
   fixed-height:	true;
 }
 
 /* ---- Element ---- */
+/*
 element {
   orientation: vertical;
   padding: 10px 5px 10px 5px;
@@ -35,3 +36,4 @@ element-text {
   font: "0xProto Nerd Font SemiBold 12";
   horizontal-align: 0.5;
 }
+*/
