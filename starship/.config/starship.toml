@@ -63,9 +63,10 @@ truncation_length = 4
 # truncation_symbol = '…/'
 fish_style_pwd_dir_length = 1
 style = "bold bg:lavender fg:base"
-repo_root_style = "bold bg:lavender fg:surface1"
+# repo_root_style = "bold bg:lavender fg:surface1"
 format = '[ $path ]($style)'
 repo_root_format = '[  $repo_root]($repo_root_style)[$path ]($style)'
+truncate_to_repo = false
 
 [directory.substitutions]
 "Documents" = "󰈙 "

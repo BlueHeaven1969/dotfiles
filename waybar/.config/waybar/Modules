@@ -196,8 +196,8 @@
 	"offscreen-css": true,
 	"offscreen-css-text": "(inactive)",
 	"rewrite": {
-		"(.*) — Original profile — Mozilla Firefox": " $1",
-		"Original profile — Mozilla Firefox": " New Tab",
+		"(.*) — Mozilla Firefox": " $1",
+		"Mozilla Firefox": " New Tab",
 		"LibreWolf": " LibreWolf",
 		"(.*) — LibreWolf": " $1",
 		"(.*) - fish": "> [$1]",
