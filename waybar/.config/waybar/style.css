@@ -3,17 +3,17 @@
 
 * {
 font-family: "0xProto Nerd Font";
-font-weight: bold;
+/* font-family: "CommitMono Nerd Font";
+font-feature-settings: '"ss03", "ss04", "ss05", "cv06", "cv07", "cv08"'; */
+font-weight: 600;
 min-height: 0;
-/* set font-size to 100% if font scaling is set to 1.00 using nwg-look */
 font-size: 15px;
-/* font-feature-settings: '"zero", "ss01", "ss02", "ss03", "ss04", "ss05", "cv31"'; */
 }
 
 window#waybar {
-    background: rgba (0, 0, 0, 0.5);
+    background: rgba (0, 0, 0, 0.4);
     border-radius: 12px;
-	border-bottom: 2px;
+	/* border-bottom: 2px; */
     border-style: solid;
 	border-color: @rosewater; 
 }
@@ -38,7 +38,7 @@ window#waybar {
 	border: 0px;
 	color: @pink;
 	background: @crust;
-	opacity: 0.65;
+	opacity: 0.55;
 	transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
@@ -130,12 +130,12 @@ tooltip {
 #custom-weather.showyIcyDay,
 #custom-weather.snowyIcyNight,
 #custom-weather.sunnyDay {
-	padding-top: 5px;
-	padding-bottom: 5px;
+	padding-top: 3px;
+	padding-bottom: 3px;
 	padding-right: 6px;
 	padding-left: 6px;
 }
- 
+
 /* -----------------------------------------------------------------------------
  * Module styles
  * -------------------------------------------------------------------------- */
