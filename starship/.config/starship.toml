@@ -23,7 +23,7 @@ $git_status\
 $python\
 [](fg:green bg:mauve)\
 $memory_usage\
-[](fg:teal bg:blue)\
+[](fg:mauve bg:blue)\
 $cmd_duration\
 [](fg:blue bg:none)\
 $line_break\
@@ -121,7 +121,7 @@ format = '[ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
 disabled = false
 threshold = 0
 symbol = '󰍛 '
-style = "bg:teal fg:base"
+style = "bg:mauve fg:base"
 format = '[ $symbol$ram_pct ]($style)'
 
 # [time]
