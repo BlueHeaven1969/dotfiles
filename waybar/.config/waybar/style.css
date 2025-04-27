@@ -103,6 +103,7 @@ tooltip {
 #custom-cava_mviz,
 #custom-cycle_wall,
 #custom-file_manager,
+#custom-ivpn,
 #custom-keybinds,
 #custom-keyboard,
 #custom-light_dark,
@@ -180,7 +181,7 @@ tooltip {
 }
 
 #cpu {
-    color: @peach;
+    color: @yellow;
 }
 
 #disk {
@@ -258,6 +259,10 @@ tooltip {
 	color: @teal;
 } 
   
+#custom-ivpn{
+	color: @mauve;
+}
+
 #custom-weather{
 	color: @rosewater;
 }

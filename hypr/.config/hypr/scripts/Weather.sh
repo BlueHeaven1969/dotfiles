@@ -19,31 +19,25 @@ else
     cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
 fi
 
-# Save current IFS
-SAVEIFS=$IFS
-# Change IFS to new line.
-IFS=$'\n'
-
+data=()
 if [ $cacheage -gt $max_cacheage ]; then
-    data=($(curl -s https://en.wttr.in/"$city"$1\?0uqnT 2>&1))
-    echo ${data[0]} | cut -f1 -d, > $cachedir/$cachefile
-    echo ${data[1]} | sed -E 's/^.{15}//' >> $cachedir/$cachefile
-    echo ${data[2]} | sed -E 's/^.{15}//' >> $cachedir/$cachefile
+    mapfile data < <(curl -s https://en.wttr.in/"$city""$1"\?0uqnT)
+    echo "${data[0]}" | cut -f1 -d, > $cachedir/$cachefile
+    echo "${data[1]}" | sed -E 's/^.{15}//' >> $cachedir/$cachefile
+    echo "${data[2]}" | sed -E 's/^.{15}//' >> $cachedir/$cachefile
 fi
 
-weather=($(cat $cachedir/$cachefile))
+weather=()
+mapfile weather < $cachedir/$cachefile
 
-# Restore IFSClear
-IFS=$SAVEIFS
+temp1=$(echo "${weather[2]}" | sed -E 's/\([[:digit:]]+\)//')
+temp2=$(echo "${temp1}" | sed -E 's/[[:space:]]+//g')
+temperature=$(echo "${temp2}" | sed -E 's/\+//g')
 
-temp1=$(echo ${weather[2]} | sed -E 's/\([[:digit:]]+\)//')
-temp2=$(echo ${temp1} | sed -E 's/[[:space:]]+//g')
-temperature=$(echo ${temp2} | sed -E 's/\+//g')
-
-#echo ${weather[1]##*,}
+currcond=$(echo "${weather[1]##*,}" | xargs)
 
 # https://fontawesome.com/icons?s=solid&c=weather
-case $(echo ${weather[1]##*,} | tr '[:upper:]' '[:lower:]') in
+case $(echo "${currcond}" | tr '[:upper:]' '[:lower:]') in
 "clear" | "sunny")
     condition=""
     ;;
@@ -79,14 +73,13 @@ case $(echo ${weather[1]##*,} | tr '[:upper:]' '[:lower:]') in
     ;;
 *)
     condition=""
-    echo -e "{\"text\":\""$condition"\", \"alt\":\""${weather[0]}"\", \"tooltip\":\""${weather[0]}: $temperature ${weather[1]}"\"}"
     ;;
 esac
 
 #echo $temp $condition
 
-echo -e "{\"text\":\""$temperature $condition"\", \"alt\":\""${weather[0]}"\", \"tooltip\":\""${weather[0]}: $temperature ${weather[1]}"\"}"
+echo -e "{\"text\":\""$temperature $condition"\", \"alt\":\""${weather[0]}"\", \"tooltip\":\""${weather[0]}: $temperature ${currcond}"\"}"
 
 cached_weather=" $temperature  \n$condition ${weather[1]}"
 
-echo -e $cached_weather >  ~/.cache/.weather_cache
+echo -e "$cached_weather" >  ~/.cache/.weather_cache

@@ -104,7 +104,8 @@
             "class<calibre-gui>": "  ",
             "class<signal>": " 󰭹 ",
             "class<.*stremio.*>": "  ",
-            "class<io.freetubeapp.FreeTube>": "  "
+            "class<io.freetubeapp.FreeTube>": "  ",
+            "class<kodi|Kodi>": " 󰌔 "
         }
     },
     "clock": {
@@ -129,15 +130,15 @@
     // RIGHT MODULES
     "network": {
         "interval": 5,
-        "format": "{ifname}",
-        "format-wifi": "{essid} {icon}",
-        "format-ethernet": "{ifname} 󰌘",
-        "format-disconnected": "NONE 󰌙",
-        "tooltip-format": "{ipaddr}  {bandwidthUpBits}  {bandwidthDownBits}",
-        "format-linked": "󰈁 {ifname} (No IP)",
-        "tooltip-format-wifi": "{signalStrength}% {bandwidthTotalBytes}",
-        "tooltip-format-ethernet": "{bandwidthTotalBytes}",
-        "tooltip-format-disconnected": "󰌙 Disconnected",
+        "format": "󰛵",
+        "format-wifi": "{icon}",
+        "format-ethernet": "󰱓",
+        "format-disconnected": "󰅛",
+        "format-linked": "󰈁",
+        "tooltip-format": "{ipaddr}\r {bandwidthUpBits}  {bandwidthDownBytes}",
+        "tooltip-format-wifi": "{essid} {signalStrength}%\r{bandwidthTotalBytes}",
+        "tooltip-format-ethernet": "{ifname}\r{bandwidthTotalBytes}",
+        "tooltip-format-disconnected": "Disconnected",
         "max-length": 30,
         "format-icons": [
             "󰤯",
@@ -150,9 +151,10 @@
     },
     "bluetooth": {
         "format": " ",
-        "format-disabled": "󰂳",
+        "format-disabled": "󰂲",
         "format-off": "󰂲",
         "format-connected": "󰂱 {num_connections}",
+        "format-connected-battery": "󰂱 {num_connections} 󰂄{device_battery_percentage}%",
         "tooltip-format": " {device_alias}",
         "tooltip-format-off": " off",
         "tooltip-format-disabled": " disabled",
@@ -160,6 +162,14 @@
         "tooltip-format-enumerate-connected": " {device_alias} 󰂄{device_battery_percentage}%",
         "tooltip": true,
         "on-click": "blueman-manager"
+    },
+    "custom/ivpn": {
+        "format": "{}",
+        "interval": 30,
+        "return-type": "json",
+        "exec": "$HOME/.config/hypr/scripts/ivpn.sh",
+        "tooltip": true,
+        "on-click": "$HOME/.config/hypr/scripts/ivpn_toggle.sh"
     },
     "custom/weather": {
         "format": "{}",

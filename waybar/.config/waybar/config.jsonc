@@ -26,6 +26,7 @@
     "modules-right": [
         "network",
         "bluetooth",
+        "custom/ivpn",
         "custom/separator#dot-line",
         "group/laptop",
         "custom/separator#dot-line",
