@@ -9,40 +9,34 @@ palette = "catppuccin_mocha"
 command_timeout = 2000
 
 format = """
-[](rosewater)\
-$username\
+[](blue)\
 $os\
 $shell\
-[](bg:lavender fg:rosewater)\
+$cmd_duration\
+[](blue)\
 $directory\
-[](fg:lavender bg:pink)\
 $git_branch\
 $git_commit\
 $git_status\
-[](fg:pink bg:green)\
 $python\
-[](fg:green bg:mauve)\
-$memory_usage\
-[](fg:mauve bg:blue)\
-$cmd_duration\
-[](fg:blue bg:none)\
 $line_break\
+$username\
 $character\
 """
 
 [os]
 disabled = false
-style = 'bg:rosewater fg:base'
+style = 'bg:blue fg:base'
 format = '[$symbol ]($style)'
 
 [os.symbols]
 Arch = '󰣇'
-Windows = ' '
-openSUSE = ' '
+Windows = ''
+openSUSE = ' '
 
 [shell]
 disabled = false
-style = 'bg:rosewater fg:base'
+style = 'bg:blue fg:base'
 format = '[$indicator ]($style)'
 fish_indicator = '󰈺'
 bash_indicator = '󱆃'
@@ -52,12 +46,11 @@ cmd_indicator = ''
 
 [username]
 disabled = false
-style_root = 'bold bg:rosewater fg:red_text'
-style_user = 'bg:rosewater fg:base'
+style_root = 'maroon'
+style_user = 'blue'
 format = '[󰢏 ]($style)'
 
 [character]
-# Note the use of Catppuccin color 'maroon'
 success_symbol = "[󰧚 ](green)"
 error_symbol = "[󰧚 ](red)"
 vimcmd_symbol = "[󰧚 ](blue)"
@@ -69,10 +62,11 @@ vimcmd_visual_symbol = "[󰧚 ](yellow)"
 truncation_length = 3
 truncation_symbol = '…'
 fish_style_pwd_dir_length = 1
-style = "bold bg:lavender fg:base"
+use_os_path_sep = false
+style = "bold mauve"
 #repo_root_style = "bold bg:lavender fg:red_text"
 format = '[ $path ]($style)'
-#repo_root_format = '[  $repo_root$path ]($repo_root_style)'
+#repo_root_format = '[  $path ]($repo_root_style)'
 
 #[directory.substitutions]
 #"Documents" = "󰈙 "
@@ -86,17 +80,17 @@ format = '[ $path ]($style)'
 #"~/OneDrive - Rockwell Automation, Inc" = '󰏊 '
 
 [git_branch]
-style = "bg:pink fg:base"
-format = "[ $symbol$branch ]($style)"
+style = "peach"
+format = "[ $symbol$branch]($style)"
 
 [git_commit]
-style = "bg:pink fg:base"
+style = "peach"
 tag_disabled = false
 tag_symbol = '  '
 format = "[ $hash$tag ]($style)"
 
 [git_status]
-style = "bg:pink fg:base"
+style = "peach"
 conflicted = '[ ](fg:red)'
 ahead = '󰜷${count} '
 behind = '󰜮${count} '
@@ -109,20 +103,27 @@ staged = '󰗖 '
 renamed = ' '
 deleted = ' '
 ignore_submodules = true
-format = "[ $all_status$ahead_behind ]($style)"
+format = "[ $all_status$ahead_behind ]($style)"
 
 [python]
-style = "bg:green fg:base"
+style = "green"
 symbol = '󰌠 '
 version_format = 'v${major}.${minor}'
-format = '[ ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = '[${symbol}(${version} )(\($virtualenv\))]($style)'
+
+[cmake]
+style = "bg:mauve fg:base"
+symbol = ' '
+version_format = 'v${major}.${minor}'
+format = '[ $symbol($version )]($style)'
+detect_files = ['CMakeLists.txt', 'CmakeLists.txt', 'Cmakelists.txt', 'cmakelists.txt', 'CMakeCache.txt']
 
 [memory_usage]
 disabled = false
 threshold = 0
 symbol = '󰍛 '
-style = "bg:mauve fg:base"
-format = '[ $symbol$ram_pct ]($style)'
+style = "mauve"
+format = '[ $symbol$ram_pct ]($style)'
 
 # [time]
 # disabled = false
@@ -132,7 +133,7 @@ format = '[ $symbol$ram_pct ]($style)'
 
 [cmd_duration]
 disabled = false
-min_time = 1500
+min_time = 1000
 # show_milliseconds = true
 style = "bg:blue fg:base"
 format = '[ $duration ]($style)'
