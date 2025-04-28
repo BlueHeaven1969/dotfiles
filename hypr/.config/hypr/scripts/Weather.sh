@@ -19,22 +19,13 @@ else
     cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
 fi
 
-data=()
 if [ $cacheage -gt $max_cacheage ]; then
-    mapfile data < <(curl -s https://en.wttr.in/"$city""$1"\?0uqnT)
-    echo "${data[0]}" | cut -f1 -d, > $cachedir/$cachefile
-    echo "${data[1]}" | sed -E 's/^.{15}//' >> $cachedir/$cachefile
-    echo "${data[2]}" | sed -E 's/^.{15}//' >> $cachedir/$cachefile
+    curl -s https://forecast.weather.gov/xml/current_obs/$city.xml > $cachedir/$cachefile
 fi
 
-weather=()
-mapfile weather < $cachedir/$cachefile
-
-temp1=$(echo "${weather[2]}" | sed -E 's/\([[:digit:]]+\)//')
-temp2=$(echo "${temp1}" | sed -E 's/[[:space:]]+//g')
-temperature=$(echo "${temp2}" | sed -E 's/\+//g')
-
-currcond=$(echo "${weather[1]##*,}" | xargs)
+temp=$(xml_grep --text_only 'temp_f' $cachedir/$cachefile)
+temperature=${temp%.*}
+currcond=$(xml_grep --text_only 'weather' $cachedir/$cachefile)
 
 # https://fontawesome.com/icons?s=solid&c=weather
 case $(echo "${currcond}" | tr '[:upper:]' '[:lower:]') in
@@ -78,8 +69,8 @@ esac
 
 #echo $temp $condition
 
-echo -e "{\"text\":\""$temperature $condition"\", \"alt\":\""${weather[0]}"\", \"tooltip\":\""${weather[0]}: $temperature ${currcond}"\"}"
+echo -e "{\"text\":\""$temperatureF $condition"\", \"alt\":\""$temperatureF $currcond"\", \"tooltip\":\""$city: $temperatureF $currcond"\"}"
 
-cached_weather=" $temperature  \n$condition ${weather[1]}"
+cached_weather=" $temperature  \n$condition $currcond"
 
 echo -e "$cached_weather" >  ~/.cache/.weather_cache
