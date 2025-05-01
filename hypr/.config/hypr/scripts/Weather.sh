@@ -4,32 +4,34 @@
 # Remember to add city 
 
 city=KLWM
-cachedir=~/.cache/rbn
-cachefile=weather_cache_$city
+xmlcache=~/.cache/.weather_cache_$city
+datacache=~/.cache/.weather_cache
 cacheage=9999
-max_cacheage=1740
+# Retrieve every 45 mins
+max_cacheage=2700
 
-if [ ! -d $cachedir ]; then
-    mkdir -p $cachedir
+if [ ! -f $xmlcache ]; then
+    touch $xmlcache
 fi
 
-if [ ! -f $cachedir/$cachefile ]; then
-    touch $cachedir/$cachefile
-else
-    cacheage=$(($(date +%s) - $(stat -c '%Y' "$cachedir/$cachefile")))
+cachesize=$(stat -c%s "$xmlcache")
+minsize=100
+
+if [ "$cachesize" -gt "$minsize" ]; then
+    cacheage=$(($(date +%s) - $(stat -c '%Y' "$xmlcache")))
 fi
 
 if [ $cacheage -gt $max_cacheage ]; then
-    curl -s https://forecast.weather.gov/xml/current_obs/$city.xml > $cachedir/$cachefile
+    curl -s https://forecast.weather.gov/xml/current_obs/$city.xml > $xmlcache
 fi
 
-temp=$(xml_grep --text_only 'temp_f' $cachedir/$cachefile)
+temp=$(xml_grep --text_only 'temp_f' $xmlcache)
 temperature=${temp%.*}
-currcond=$(xml_grep --text_only 'weather' $cachedir/$cachefile)
+currcond=$(xml_grep --text_only 'weather' $xmlcache)
 
 # https://fontawesome.com/icons?s=solid&c=weather
 case $(echo "${currcond}" | tr '[:upper:]' '[:lower:]') in
-"clear" | "sunny")
+"clear" | "sunny" | "fair" | "fair and breezy")
     condition=""
     ;;
 "partly cloudy")
@@ -73,4 +75,4 @@ echo -e "{\"text\":\""$temperatureF $condition"\", \"alt\":\""$temperature
 
 cached_weather=" $temperature  \n$condition $currcond"
 
-echo -e "$cached_weather" >  ~/.cache/.weather_cache
+echo -e "$cached_weather" >  $datacache
