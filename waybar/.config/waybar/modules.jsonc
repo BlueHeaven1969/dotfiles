@@ -184,7 +184,8 @@
     },
     "tray": {
         "icon-size": 18,
-        "spacing": 4
+        "spacing": 4,
+        "show-passive-items": true
     },
     "custom/swaync": {
         "tooltip": true,
@@ -252,8 +253,9 @@
         "full-at": 100,
         "design-capacity": false,
         "states": {
-            "good": 95,
-            "warning": 30,
+            "top": 100,
+            "normal": 85,
+            "warning": 25,
             "critical": 15
         },
         "format": "{icon} {capacity}%",

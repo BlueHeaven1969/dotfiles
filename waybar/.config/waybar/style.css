@@ -155,24 +155,29 @@ tooltip {
     color: @yellow;
 }
 
-#battery {
+#battery.normal {
     color: @lavender;
 }
 
-#battery.charging {
+#battery.top {
     color: @green;
+}
+
+#battery.warning {
+    color: @base;
+    background: @yellow;
 }
 
 @keyframes blink {
     to {
-        color: @surface1;
-        background-color: @maroon;
+        color: @red;
+        background-color: @base;
     }
 }
 
 #battery.critical:not(.charging) {
     background: @red;
-    color: @text;
+    color: @base;
 	animation-name: blink;
 	animation-duration: 3.0s;
 	animation-timing-function: steps(12);

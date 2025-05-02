@@ -24,8 +24,9 @@
   surface1: #45475a;
   surface0: #313244;
   base: #1e1e2e;
-  basex: #1e1e2ea0;
+  basex: #1e1e2e40;
   mantle: #181825;
   crust: #11111b;
+  crustx: #11111b40;
   }
 
