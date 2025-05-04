@@ -1,7 +1,7 @@
 #!/bin/bash
 # /* ---- 💫 https://github.com/JaKooLit 💫 ---- */  ##
 # weather info from wttr. https://github.com/chubin/wttr.in
-# Remember to add city 
+# Remember to add city
 
 city=KLWM
 xmlcache=~/.cache/.weather_cache_$city
@@ -22,47 +22,61 @@ if [ "$cachesize" -gt "$minsize" ]; then
 fi
 
 if [ $cacheage -gt $max_cacheage ]; then
-    curl -s https://forecast.weather.gov/xml/current_obs/$city.xml > $xmlcache
+    curl -s https://forecast.weather.gov/xml/current_obs/$city.xml >$xmlcache
 fi
 
 temp=$(xml_grep --text_only 'temp_f' $xmlcache)
 temperature=${temp%.*}
 currcond=$(xml_grep --text_only 'weather' $xmlcache)
+curricon=$(xml_grep --text_only 'icon_url_name' $xmlcache)
+icon=${curricon%.*}
 
 # https://fontawesome.com/icons?s=solid&c=weather
-case $(echo "${currcond}" | tr '[:upper:]' '[:lower:]') in
-"clear" | "sunny" | "fair" | "fair and breezy")
-    condition=""
+case $(echo "${icon}" | tr '[:upper:]' '[:lower:]') in
+"skc")
+    condition="󰖙"
     ;;
-"partly cloudy")
+"nskc")
+    condition="󰖔"
+    ;;
+"few" | "skt")
     condition="󰖕"
     ;;
-"cloudy")
-    condition=""
+"nfew" | "nskt")
+    condition="󰼱"
     ;;
-"overcast")
-    condition=""
+"bkn")
+    condition=""
     ;;
-"fog" | "freezing fog")
-    condition=""
+"nbkn")
+    condition=""
     ;;
-"patchy rain possible" | "patchy light drizzle" | "light drizzle" | "patchy light rain" | "light rain" | "light rain shower" | "mist" | "rain")
-    condition="󰼳"
+"ovc" | "novc")
+    condition="󰖐"
     ;;
-"moderate rain at times" | "moderate rain" | "heavy rain at times" | "heavy rain" | "moderate or heavy rain shower" | "torrential rain shower" | "rain shower")
-    condition=""
+"fg" | "nfg")
+    condition="󰖑"
     ;;
-"patchy snow possible" | "patchy sleet possible" | "patchy freezing drizzle possible" | "freezing drizzle" | "heavy freezing drizzle" | "light freezing rain" | "moderate or heavy freezing rain" | "light sleet" | "ice pellets" | "light sleet showers" | "moderate or heavy sleet showers")
-    condition="󰼴"
+"shra")
+    condition=""
     ;;
-"blowing snow" | "moderate or heavy sleet" | "patchy light snow" | "light snow" | "light snow showers")
+"nshra")
+    condition=""
+    ;;
+"tsra" | "ntsra")
+    condition="󰙾"
+    ;;
+"sn" | "nsn")
+    condition="󰖘"
+    ;;
+"fzrara" | "nfzrara")
     condition="󰙿"
     ;;
-"blizzard" | "patchy moderate snow" | "moderate snow" | "patchy heavy snow" | "heavy snow" | "moderate or heavy snow with thunder" | "moderate or heavy snow showers")
-    condition=""
+"mist" | "nmist")
+    condition="󰼰"
     ;;
-"thundery outbreaks possible" | "patchy light rain with thunder" | "moderate or heavy rain with thunder" | "patchy light snow with thunder")
-    condition=""
+"ra" | "nra")
+    condition="󰖗"
     ;;
 *)
     condition=""
@@ -75,4 +89,4 @@ echo -e "{\"text\":\""$temperatureF $condition"\", \"alt\":\""$temperature
 
 cached_weather=" $temperature  \n$condition $currcond"
 
-echo -e "$cached_weather" >  $datacache
+echo -e "$cached_weather" >$datacache

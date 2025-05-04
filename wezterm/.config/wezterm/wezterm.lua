@@ -6,8 +6,8 @@ local config = wezterm.config_builder()
 
 -- This is where you actually apply your config choices
 config.color_scheme = 'Catppuccin Mocha'
--- config.window_background_opacity = 0.9
--- config.text_background_opacity = 0.9
+config.window_background_opacity = 0.7
+-- config.text_background_opacity = 0.7
 config.font = wezterm.font('0xProto Nerd Font')
 config.initial_rows = 40
 config.initial_cols = 100
