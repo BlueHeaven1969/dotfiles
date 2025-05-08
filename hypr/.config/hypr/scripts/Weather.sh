@@ -64,10 +64,10 @@ case $(echo "${icon}" | tr '[:upper:]' '[:lower:]') in
     condition=""
     ;;
 "tsra" | "ntsra")
-    condition="󰙾"
+    condition=""
     ;;
 "sn" | "nsn")
-    condition="󰖘"
+    condition="󰜗"
     ;;
 "fzrara" | "nfzrara")
     condition="󰙿"
