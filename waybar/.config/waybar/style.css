@@ -104,6 +104,7 @@ tooltip {
 #custom-cycle_wall,
 #custom-file_manager,
 #custom-ivpn,
+#custom-protonvpn,
 #custom-keybinds,
 #custom-keyboard,
 #custom-light_dark,
@@ -267,6 +268,11 @@ tooltip {
 #custom-ivpn{
 	color: @mauve;
 }
+
+#custom-protonvpn{
+	color: @mauve;
+}
+
 
 #custom-weather{
 	color: @rosewater;

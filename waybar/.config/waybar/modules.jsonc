@@ -105,7 +105,7 @@
             "class<calibre-gui>": "  ",
             "class<signal>": " 󰭹 ",
             "class<.*stremio.*>": "  ",
-            "class<io.freetubeapp.FreeTube>": "  ",
+            "class<io.freetubeapp.FreeTube|FreeTube>": "  ",
             "class<kodi|Kodi>": " 󰌔 "
         }
     },
@@ -131,6 +131,7 @@
     // RIGHT MODULES
     "network": {
         "interval": 5,
+        "interface": "wlp192s0",
         "format": "󰛵",
         "format-wifi": "{icon}",
         "format-ethernet": "󰱓",
@@ -172,6 +173,12 @@
         "tooltip": true,
         "on-click": "$HOME/.config/hypr/scripts/ivpn_toggle.sh"
     },
+    "custom/protonvpn": {
+        "format": "{}",
+        "interval": 30,
+        "return-type": "json",
+        "exec": "$HOME/.config/hypr/scripts/protonvpn.sh",
+    },
     "custom/weather": {
         "format": "{}",
         "format-alt": "{alt}: {}",
@@ -179,7 +186,6 @@
         "interval": 120,
         "return-type": "json",
         "exec": "$HOME/.config/hypr/scripts/Weather.sh",
-        "exec-if": "ping wttr.in -c1",
         "tooltip": true,
         "on-click": "$HOME/.config/hypr/scripts/Weather.sh"
     },

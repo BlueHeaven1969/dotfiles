@@ -39,10 +39,10 @@ case $(echo "${icon}" | tr '[:upper:]' '[:lower:]') in
 "nskc")
     condition="󰖔"
     ;;
-"few" | "skt")
+"few" | "skt" | "sct")
     condition="󰖕"
     ;;
-"nfew" | "nskt")
+"nfew" | "nskt" | "nsct")
     condition="󰼱"
     ;;
 "bkn")
