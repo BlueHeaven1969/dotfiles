@@ -45,15 +45,7 @@
         "separate-outputs": true,
         "offscreen-css": true,
         "offscreen-css-text": "(inactive)",
-        "rewrite": {
-            "(.*) — Mozilla Firefox": " $1",
-            "Mozilla Firefox": " New Tab",
-            "LibreWolf": " LibreWolf",
-            "(.*) — LibreWolf": " $1",
-            "(.*) - fish": "> [$1]",
-            "(.*) - zsh": "> [$1]",
-            "(.*) - $term": "> [$1]"
-        }
+        "icon": true
     },
     // CENTER MODULES
     "hyprland/workspaces#rw": {
@@ -136,7 +128,7 @@
         "format-wifi": "{icon}",
         "format-ethernet": "󰱓",
         "format-disconnected": "󰅛",
-        "format-linked": "󰈁",
+        "format-linked": "{icon}",
         "tooltip-format": "{ipaddr}\r {bandwidthUpBits}  {bandwidthDownBytes}",
         "tooltip-format-wifi": "{essid} {signalStrength}%\r{bandwidthTotalBytes}",
         "tooltip-format-ethernet": "{ifname}\r{bandwidthTotalBytes}",
