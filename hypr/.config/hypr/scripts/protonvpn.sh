@@ -1,18 +1,19 @@
 #!/bin/bash
 # Retrieve IVPN status from CLI
 
-protonfile=~/.cache/Proton/VPN/connection/connection_persistence.json
-if ip add show | grep -qF pvpn; then
-    tag='󰦝'
-else
-    tag=''
-fi
-
+cachefile=~/.cache/nm-conns
 server=''
-if [ -f $protonfile ]; then
-    server=$(jq -r '.server.server_name' $protonfile)
-fi
+tag=''
 
+nmcli connection show --active > $cachefile
+if grep -qF Proton $cachefile; then
+    tag='󰦝'
+    if grep -qF ProtonVPN $cachefile; then
+        server=$(grep -Po "[A-Z]{2}#[0-9]." $cachefile)
+    else
+        server=$(grep -Po "[A-Z]{2}-[0-9]." $cachefile)
+    fi
+fi
 
 echo -e "{\"text\":\""$tag $server"\"}"
 
