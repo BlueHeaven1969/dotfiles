@@ -3,7 +3,7 @@
 
 cachefile=~/.cache/nm-conns
 server=''
-tag=''
+tag=''
 
 nmcli connection show --active > $cachefile
 if grep -qF Proton $cachefile; then
@@ -13,7 +13,9 @@ if grep -qF Proton $cachefile; then
     else
         server=$(grep -Po "[A-Z]{2}-[0-9]." $cachefile)
     fi
+    echo -e "{\"text\":\""$tag $server"\"}"
+else
+    echo -e "{\"text\":\"\"}"
 fi
 
-echo -e "{\"text\":\""$tag $server"\"}"
 
