@@ -2,9 +2,9 @@
 @import 'mocha.css';
 
 * {
-font-family: "0xProto Nerd Font";
-/* font-family: "CommitMono Nerd Font";
-font-feature-settings: '"ss03", "ss04", "ss05", "cv06", "cv07", "cv08"'; */
+/*font-family: "0xProto Nerd Font Propo"; */
+font-family: "CommitMono Nerd Font Propo";
+font-feature-settings: '"ss03", "ss04", "ss05", "cv06", "cv07", "cv08"';
 font-weight: 600;
 min-height: 0;
 font-size: 15px;
@@ -33,7 +33,7 @@ window#waybar {
 
 #taskbar button,
 #workspaces button {
-	padding: 0px 5px;
+	padding: 3px 8px;
 	border-radius: 15px;
 	border: 0px;
 	color: @pink;
@@ -43,7 +43,7 @@ window#waybar {
 }
 
 #workspaces button.empty {
-	padding: 0px 5px;
+	padding: 3px 8px;
 	border-radius: 15px;
 	border: 0px;
 	color: @pink;
@@ -54,7 +54,7 @@ window#waybar {
 
 #taskbar button.active,
 #workspaces button.active {
-	padding: 0px 5px;
+	padding: 3px 8px;
 	border-radius: 15px;
 	border: 0px;
 	color: @crust;

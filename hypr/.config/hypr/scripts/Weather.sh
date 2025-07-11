@@ -29,6 +29,11 @@ temp=$(xml_grep --text_only 'temp_f' $xmlcache)
 temperature=${temp%.*}
 currcond=$(xml_grep --text_only 'weather' $xmlcache)
 curricon=$(xml_grep --text_only 'icon_url_name' $xmlcache)
+dewpt=$(xml_grep --text_only 'dewpoint_f' $xmlcache)
+dewpoint=${dewpt%.*}
+press=$(xml_grep --text_only 'pressure_in' $xmlcache)
+wind=$(xml_grep --text_only 'wind_string' $xmlcache)
+obstime=$(xml_grep --text_only 'observation_time' $xmlcache)
 icon=${curricon%.*}
 
 # https://fontawesome.com/icons?s=solid&c=weather
@@ -85,7 +90,7 @@ esac
 
 #echo $temp $condition
 
-echo -e "{\"text\":\""$temperatureF $condition"\", \"alt\":\""$temperatureF $currcond"\", \"tooltip\":\""$city: $temperatureF $currcond"\"}"
+echo -e "{\"text\":\""$temperature°F $condition"\", \"alt\":\""$temperature°F $currcond"\", \"tooltip\":\""$city: $temperature°F $currcond\\rWind: $wind\\rDew Point: $dewpoint°F\\rPressure: $press in\\r$obstime"\"}"
 
 cached_weather=" $temperature  \n$condition $currcond"
 

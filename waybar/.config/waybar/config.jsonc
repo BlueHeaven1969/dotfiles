@@ -15,7 +15,7 @@
     "margin-right": 8,
     "modules-left": [
         "custom/playerctl",
-        "custom/separator#blank_2",
+        "custom/separator#blank",
         "hyprland/window"
     ],
     "modules-center": [
@@ -36,7 +36,9 @@
         "custom/weather",
         "custom/separator#dot-line",
         "tray",
+        "custom/separator#dot-line",
         "custom/swaync",
-        "group/status"
+        "group/status",
+        "custom/separator#blank"
     ]
 }
