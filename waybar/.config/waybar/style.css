@@ -3,11 +3,15 @@
 
 * {
 /*font-family: "0xProto Nerd Font Propo"; */
-font-family: "CommitMono Nerd Font Propo";
-font-feature-settings: '"ss03", "ss04", "ss05", "cv06", "cv07", "cv08"';
+/*font-family: "CommitMono Nerd Font Propo";
+font-feature-settings: "ss03, ss04, ss05, cv06, cv07, cv08";*/
+font-family: "Iosevka Nerd Font Propo";
+font-feature-settings: "cv02 1, cv03 1, cv10 6";
+/*font-family: "ZedMono Nerd Font Propo";
+font-feature-settings: "cv71 4";*/
 font-weight: 600;
 min-height: 0;
-font-size: 15px;
+font-size: 16px;
 }
 
 window#waybar {
@@ -237,7 +241,7 @@ tooltip {
 /*-----Indicators----*/
 #custom-hypridle.notactive,
 #idle_inhibitor.activated {
-	color: @subtext0;
+	color: @green;
 }
 
 #tray {
