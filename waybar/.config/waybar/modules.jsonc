@@ -114,7 +114,7 @@
         "format-wifi": "{icon} {essid}",
         "format-ethernet": "󰈀",
         "format-disconnected": "󰤮",
-        "format-linked": "{icon}",
+        "format-linked": "{icon} {essid}",
         "tooltip-format": "{ipaddr}\r {bandwidthUpBits}  {bandwidthDownBytes}",
         "tooltip-format-wifi": "{essid} {signalStrength}%\r{bandwidthTotalBytes}",
         "tooltip-format-ethernet": "{ifname}\r{bandwidthTotalBytes}",
